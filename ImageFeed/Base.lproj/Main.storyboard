@@ -22,6 +22,73 @@
                                 <color key="backgroundColor" name="YP Black"/>
                                 <color key="separatorColor" name="YP Black"/>
                                 <color key="sectionIndexBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationWidth="10" reuseIdentifier="ImagesListCell" rowHeight="239" id="aDg-Sf-bIF" customClass="ImagesListCell" customModule="ImageFeed" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="239"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aDg-Sf-bIF" id="meM-Xv-kmA">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="239"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="3Lb-oj-JDH">
+                                                    <rect key="frame" x="16" y="-4" width="382" height="239"/>
+                                                    <color key="backgroundColor" name="YP Black"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="16"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fZQ-NU-J0h">
+                                                    <rect key="frame" x="370" y="0.0" width="44" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="Ust-BT-aRE"/>
+                                                        <constraint firstAttribute="width" constant="44" id="Yth-Fk-pj2"/>
+                                                    </constraints>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <state key="normal" image="Activeliked"/>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sept 14, 2023" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q2q-bN-CVQ">
+                                                    <rect key="frame" x="24" y="213" width="152" height="18"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="18" id="pnd-Ro-aiO"/>
+                                                        <constraint firstAttribute="width" constant="152" id="sax-mc-JYh"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" name="YP Black"/>
+                                            <constraints>
+                                                <constraint firstItem="fZQ-NU-J0h" firstAttribute="top" secondItem="meM-Xv-kmA" secondAttribute="top" id="0iu-Ph-IHA"/>
+                                                <constraint firstItem="3Lb-oj-JDH" firstAttribute="bottom" secondItem="q2q-bN-CVQ" secondAttribute="bottom" constant="4" id="A4X-Tl-Fkr"/>
+                                                <constraint firstAttribute="trailing" secondItem="fZQ-NU-J0h" secondAttribute="trailing" id="HJa-VY-mJs"/>
+                                                <constraint firstItem="q2q-bN-CVQ" firstAttribute="leading" secondItem="3Lb-oj-JDH" secondAttribute="leading" constant="8" id="QkF-5C-1Po"/>
+                                                <constraint firstItem="3Lb-oj-JDH" firstAttribute="topMargin" secondItem="meM-Xv-kmA" secondAttribute="top" constant="4" id="REC-G8-oEd"/>
+                                                <constraint firstAttribute="bottom" secondItem="3Lb-oj-JDH" secondAttribute="bottom" constant="4" id="buG-oN-3sX"/>
+                                                <constraint firstItem="3Lb-oj-JDH" firstAttribute="leading" secondItem="meM-Xv-kmA" secondAttribute="leading" constant="16" id="kSW-4F-zHX"/>
+                                                <constraint firstAttribute="trailing" secondItem="3Lb-oj-JDH" secondAttribute="trailing" constant="16" id="nDN-lc-jgT"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="16"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="cellImage" destination="3Lb-oj-JDH" id="XH1-LM-8CI"/>
+                                            <outlet property="dateLabel" destination="q2q-bN-CVQ" id="unf-EM-nPg"/>
+                                            <outlet property="likeButton" destination="fZQ-NU-J0h" id="f5Y-Nt-Wv6"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="k0T-PZ-IpU"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="oDH-ch-Ftc"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -39,10 +106,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-23" y="77"/>
+            <point key="canvasLocation" x="-23.188405797101453" y="76.339285714285708"/>
         </scene>
     </scenes>
     <resources>
+        <image name="0" width="200" height="132"/>
+        <image name="Activeliked" width="44" height="44"/>
         <namedColor name="YP Black">
             <color red="0.10199999809265137" green="0.10599999874830246" blue="0.13300000131130219" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
