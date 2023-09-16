@@ -41,7 +41,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fZQ-NU-J0h">
-                                                    <rect key="frame" x="370" y="0.0" width="44" height="44"/>
+                                                    <rect key="frame" x="354" y="0.0" width="44" height="44"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="44" id="Ust-BT-aRE"/>
                                                         <constraint firstAttribute="width" constant="44" id="Yth-Fk-pj2"/>
@@ -64,7 +64,7 @@
                                             <constraints>
                                                 <constraint firstItem="fZQ-NU-J0h" firstAttribute="top" secondItem="meM-Xv-kmA" secondAttribute="top" id="0iu-Ph-IHA"/>
                                                 <constraint firstItem="3Lb-oj-JDH" firstAttribute="bottom" secondItem="q2q-bN-CVQ" secondAttribute="bottom" constant="4" id="A4X-Tl-Fkr"/>
-                                                <constraint firstAttribute="trailing" secondItem="fZQ-NU-J0h" secondAttribute="trailing" id="HJa-VY-mJs"/>
+                                                <constraint firstItem="3Lb-oj-JDH" firstAttribute="trailing" secondItem="fZQ-NU-J0h" secondAttribute="trailing" id="HJa-VY-mJs"/>
                                                 <constraint firstItem="q2q-bN-CVQ" firstAttribute="leading" secondItem="3Lb-oj-JDH" secondAttribute="leading" constant="8" id="QkF-5C-1Po"/>
                                                 <constraint firstItem="3Lb-oj-JDH" firstAttribute="topMargin" secondItem="meM-Xv-kmA" secondAttribute="top" constant="4" id="REC-G8-oEd"/>
                                                 <constraint firstAttribute="bottom" secondItem="3Lb-oj-JDH" secondAttribute="bottom" constant="4" id="buG-oN-3sX"/>
