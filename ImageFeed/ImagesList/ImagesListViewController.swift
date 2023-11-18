@@ -46,8 +46,8 @@ class ImagesListViewController: UIViewController {
                let viewController = segue.destination as! SingleImageViewController // 2
                let indexPath = sender as! IndexPath // 3
                let image = UIImage(named: photosName[indexPath.row]) // 4
-               _ = viewController.view // CRASH FIXED !?
-               viewController.imageView.image = image // 5
+              // _ = viewController.view // CRASH FIXED !?
+               viewController.image = image // 5
            } else {
                super.prepare(for: segue, sender: sender) // 6
            }
