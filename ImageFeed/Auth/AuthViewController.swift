@@ -9,21 +9,19 @@ import Foundation
 import UIKit
 
 protocol AuthViewControllerDelegate: AnyObject {
-  func authViewController(_ viewController: AuthViewController, didAuthenticateWithCode code: String)
+    func authViewController(_ viewController: AuthViewController, didAuthenticateWithCode code: String)
 }
 
 final class AuthViewController: UIViewController {
     let showWebView = "ShowWebView"
     weak var delegate: AuthViewControllerDelegate?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-      }
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        let webViewViewController = segue.destination as? WebViewViewController
-//        webViewViewController?.delegate = self
-//
+        
         if segue.identifier == showWebView {
             guard
                 let webViewViewController = segue.destination as? WebViewViewController

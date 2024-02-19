@@ -7,11 +7,9 @@
 
 import Foundation
 import UIKit
-//import WebKit
+
 
 class SplashViewController: UIViewController {
-    
-   
     
     private let ShowAuthenticationScreenSegueIdentifier = "ShowAuthenticationScreen"
     private let oauth2Service = OAuth2Service()
@@ -19,9 +17,9 @@ class SplashViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-//        switchToTabBarController()
+        //        switchToTabBarController()
         let token = oauth2TokenStorage.token
-      
+        
         if token != nil && token!.count > 0 {
             switchToTabBarController()
         } else {
@@ -41,7 +39,7 @@ class SplashViewController: UIViewController {
         window.rootViewController = tabBarController
     }
 }
-    
+
 extension SplashViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == ShowAuthenticationScreenSegueIdentifier {
@@ -61,10 +59,9 @@ extension SplashViewController: AuthViewControllerDelegate {
         dismiss(animated: true) { [weak self] in
             guard let self = self else { return }
             self.fetchOAuthToken(code)
-           
         }
     }
-
+    
     private func fetchOAuthToken(_ code: String) {
         oauth2Service.fetchOAuthToken(code) { [weak self] result in
             guard let self = self else { return }
@@ -74,7 +71,7 @@ extension SplashViewController: AuthViewControllerDelegate {
                 if accessToken != nil {
                     UserDefaults.standard.set(accessToken, forKey: "token")
                 }
-               
+                
                 self.switchToTabBarController()
             case .failure:
                 // Handle failure case

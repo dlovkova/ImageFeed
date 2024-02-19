@@ -32,11 +32,9 @@ class WebViewViewController: UIViewController {
         ]
         print (urlComponents)
         let url = urlComponents.url!
-        
         let request = URLRequest(url: url)
         webView.load(request)
         updateProgress()
-        
         webView.navigationDelegate = self
     }
     
@@ -72,10 +70,7 @@ class WebViewViewController: UIViewController {
         progressView.progress = Float(webView.estimatedProgress)
         progressView.isHidden = fabs(webView.estimatedProgress - 1.0) <= 0.0001
     }
-    
 }
-
-
 
 extension WebViewViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView,
