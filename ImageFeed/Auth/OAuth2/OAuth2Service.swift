@@ -21,27 +21,38 @@ final class OAuth2Service {
             }
         }
     
+    func fetchToken(code: String, completion: @escaping (Result<OAuthTokenResponseBody, Error>) -> Void) {
+          networkService.data(for: authTokenRequest(code: code)) { result in
+              switch result {
+              case .success(let data):
+                  guard let data = self.networkService.decodeJson(type: OAuthTokenResponseBody.self, data: data) else { return }
+                  completion(.success(data))
+              case .failure(let error):
+                  completion(.failure(error))
+              }
+          }
+      }
     
     
-//    func fetchOAuthToken(_ code: String, completion: @escaping (Result<String, Error>) -> Void) {
-//        networkService.data(for: authTokenRequest(code: code)) { result in
-//                    switch result {
-//                    case .success(let data):
-//                        guard let data = self.networkService.decodeJson(type: OAuthTokenResponseBody.self, data: data) else { return }
-//                        completion(.success(data))
-//                    case .failure(let error):
-//                        completion(.failure(error))
-//                    }
-//                }
-//
+    func fetchOAuthToken(_ code: String, completion: @escaping (Result<OAuthTokenResponseBody, Error>) -> Void) {
+        networkService.data(for: authTokenRequest(code: code)) { result in
+                    switch result {
+                    case .success(let data):
+                        guard let data = self.networkService.decodeJson(type: OAuthTokenResponseBody.self, data: data) else { return }
+                        completion(.success(data))
+                    case .failure(let error):
+                        completion(.failure(error))
+                    }
+                }
+
+
+    }
+
+    
+//    func fetchOAuthToken (_ code: String, completion: @escaping (Result<String, Error>) -> Void) {
 //
 //    }
 //
-    
-    func fetchOAuthToken (_ code: String, completion: @escaping (Result<String, Error>) -> Void) {
-        
-    }
-    
     
       //  completion(.success(""))
         
@@ -91,15 +102,5 @@ final class OAuth2Service {
     }
     
     
-    private func fetchToken(code: String, completion: @escaping (Result<OAuthTokenResponseBody, Error>) -> Void) {
-           networkService.data(for: authTokenRequest(code: code)) { result in
-               switch result {
-               case .success(let data):
-                   guard let data = self.networkService.decodeJson(type: OAuthTokenResponseBody.self, data: data) else { return }
-                   completion(.success(data))
-               case .failure(let error):
-                   completion(.failure(error))
-               }
-           }
-       }
+   
 }
