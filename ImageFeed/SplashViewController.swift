@@ -17,10 +17,9 @@ class SplashViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        //        switchToTabBarController()
+    
         let token = oauth2TokenStorage.token
-        
-        if token != nil && token!.count > 0 {
+        if token != nil  {
             switchToTabBarController()
         } else {
             // Show Auth Screen
@@ -68,10 +67,6 @@ extension SplashViewController: AuthViewControllerDelegate {
             switch result {
             case .success(let responseBody):
                 let accessToken = responseBody.accessToken
-                if accessToken != nil {
-                    UserDefaults.standard.set(accessToken, forKey: "token")
-                }
-                
                 self.switchToTabBarController()
             case .failure:
                 // Handle failure case
