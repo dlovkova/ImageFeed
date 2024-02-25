@@ -24,11 +24,32 @@ final class OAuth2Service {
         }
     }
     
+//    func fetchOAuthToken(_ code: String, completion: @escaping (Result<String, Error>) -> Void) {
+//            guard let request = authTokenRequest(code: code) else {
+//                fatalError("Unable to create fetch authorization token request")
+//            }
+//            let task = object(for: request) { [weak self] result in
+//                guard let self = self else { return }
+//                switch result {
+//                case .success(let body):
+//                    let authToken = body.accessToken
+//                    self.authToken = authToken
+//                    completion(.success(authToken))
+//                case .failure(let error):
+//                    completion(.failure(error))
+//                }
+//            }
+//            task.resume()
+//        }
+    
     func fetchOAuthToken(_ code: String, completion: @escaping (Result<OAuthTokenResponseBody, Error>) -> Void) {
         networkService.data(for: authTokenRequest(code: code)) { result in
             switch result {
             case .success(let body):
                 guard let data = self.networkService.decodeJson(type: OAuthTokenResponseBody.self, data: body) else { return }
+               // let authToken = body.accessToken
+               // self.authToken = authToken
+              //  print (authToken)
                 completion(.success(data))
             case .failure(let error):
                 completion(.failure(error))
@@ -39,6 +60,19 @@ final class OAuth2Service {
 
 
 extension OAuth2Service {
+    
+//    private func object(
+//            for request: URLRequest,
+//            completion: @escaping (Result<OAuthTokenResponseBody, Error>) -> Void
+//        ) -> URLSessionTask {
+//            let decoder = JSONDecoder()
+//            return urlSession.data(for: request) { (result: Result<Data, Error>) in
+//                let response = result.flatMap { data -> Result<OAuthTokenResponseBody, Error> in
+//                    Result { try decoder.decode(OAuthTokenResponseBody.self, from: data) }
+//                }
+//                completion(response)
+//            }
+//        }
     
     private func authTokenRequest(code: String) -> URLRequest {
         var components = URLComponents(

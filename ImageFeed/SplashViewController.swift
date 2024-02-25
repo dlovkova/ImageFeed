@@ -62,11 +62,14 @@ extension SplashViewController: AuthViewControllerDelegate {
     }
     
     private func fetchOAuthToken(_ code: String) {
+        print ("+-")
         oauth2Service.fetchOAuthToken(code) { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let responseBody):
                 let accessToken = responseBody.accessToken
+                self.oauth2TokenStorage.token = accessToken
+                print ("+")
                 self.switchToTabBarController()
             case .failure:
                 // Handle failure case
