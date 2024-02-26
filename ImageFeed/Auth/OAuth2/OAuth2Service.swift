@@ -29,7 +29,7 @@ final class OAuth2Service {
             switch result {
             case .success(let body):
                 guard let data = self.networkService.decodeJson(type: OAuthTokenResponseBody.self, data: body) else { return }
-                
+                self.authToken = data.accessToken
                 completion(.success(data))
             case .failure(let error):
                 completion(.failure(error))
