@@ -10,16 +10,12 @@ import UIKit
 
 final class ProfileViewController: UIViewController {
     
-    
-    
     override func viewDidLoad() {
         createProfileView()
     }
     
-    
     func createProfileView() {
         let profileImage = UIImage(named: "Photo")
-        
         let imageView = UIImageView(image: profileImage)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(imageView)
@@ -47,7 +43,6 @@ final class ProfileViewController: UIViewController {
         nickname.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16).isActive = true
         nickname.topAnchor.constraint(equalTo: name.bottomAnchor, constant: 8).isActive = true
         
-        
         let text = UILabel()
         text.text = "Hello, world!"
         text.font = UIFont.systemFont(ofSize: 13, weight: .regular)
@@ -56,7 +51,6 @@ final class ProfileViewController: UIViewController {
         view.addSubview(text)
         text.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16).isActive = true
         text.topAnchor.constraint(equalTo: nickname.bottomAnchor, constant: 8).isActive = true
-        
         
         let button = UIButton.systemButton(
             with: UIImage(named: "Exit")!,
