@@ -7,6 +7,8 @@
 
 import Foundation
 import UIKit
+import ProgressHUD
+
 
 
 class SplashViewController: UIViewController {
@@ -57,6 +59,10 @@ extension SplashViewController: AuthViewControllerDelegate {
     func authViewController(_ vc: AuthViewController, didAuthenticateWithCode code: String) {
         dismiss(animated: true) { [weak self] in
             guard let self = self else { return }
+           
+            ProgressHUD.show()
+//            ProgressHUD.animationType = .circleStrokeSpin
+            print("show")
             self.fetchOAuthToken(code)
         }
     }
@@ -65,6 +71,7 @@ extension SplashViewController: AuthViewControllerDelegate {
        
         oauth2Service.fetchOAuthToken(code) { [weak self] result in
             guard let self = self else { return }
+            ProgressHUD.dismiss()
             switch result {
             case .success(let responseBody):
                 self.switchToTabBarController()
